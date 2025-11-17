@@ -34,7 +34,7 @@
         public void Train(Network net) //backpropagation method
         {
             net.input_layer = new InputLayer(NetworkMode.Train);
-            int epoches = 60; // кол-во эпох обучения
+            int epoches = 20; // кол-во эпох обучения
             double tmpSumError;     // временная переменная суммы ошибок
             double[] errors;        // вектор сигнала ошибки выходного слоя
             double[] temp_gsums1;   // вектор градиента 1-го скрытого слоя

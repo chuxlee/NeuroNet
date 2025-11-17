@@ -16,8 +16,8 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
         // константы для функции активации (утекающая релу)
         // private double a = 0.01d; 
 
-        //private double a = 1;
-        //private double b = 1;
+        private double a = 1;
+        private double b = 1;
 
         // свойства 
         public double[] Weights { get => weights; set => weights = value; }
@@ -61,8 +61,8 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
         {
             if (sum >= 20) return 1;
             if (sum <= -20) return -1;
-            // return (Exp(2 * sum * a) - 1) / (Exp(2 * sum * b) + 1);
-            return Tanh(sum);
+            return (Exp(2 * sum * a) - 1) / (Exp(2 * sum * b) + 1);
+            //return Tanh(sum);
         }
         private double TanhDerivative(double sum)
         {
