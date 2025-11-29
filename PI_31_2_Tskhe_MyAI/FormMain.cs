@@ -71,5 +71,30 @@ namespace PI_31_2_Tskhe_MyAI
             MessageBox.Show("Обучение успешно завершено.", "Информация",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void SaveTestSample_Click(object sender, EventArgs e)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "test.txt";
+            string tmpStr = numericUpDown_NecessaryOutput.Value.ToString();
+
+            for (int i = 0; i < inputPixels.Length; i++)
+            {
+                tmpStr += " " + inputPixels[i].ToString();
+            }
+            tmpStr += "\n";
+
+            File.AppendAllText(path, tmpStr);
+        }
+
+        private void button_test_Click(object sender, EventArgs e)
+        {
+            network.Test(network);
+            for (int i = 0; i < network.E_error_avr.Length; i++)
+            {
+                chart_Eavr.Series[0].Points.AddY(network.E_error_avr[i]);
+            }
+            MessageBox.Show("Тестирование завершено.", "Информация",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace PI_31_2_Tskhe_MyAI.NeuroNet
 {
@@ -13,11 +15,8 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
         string pathFileWeights;             // пусть к файлу синаптических весов для нейросети
         protected int numofneurons;         //число нейронов текущего слоя
         protected int numofprevneurons;     //число нейронов предыдущего слоя
-        //protected const double learningrate = 0.066;    //скорость обучения (будем менять)
-        //protected const double momentum = 0.08d;       //момент инерции
-
-        protected const double learningrate = 0.0666;    //скорость обучения (будем менять)
-        protected const double momentum = 0.087d;       //момент инерции
+        protected const double learningrate = 0.065;    //скорость обучения (будем менять) 0.085 0.0055
+        protected const double momentum = 0.05d;       //момент инерции 0.095 0.0000 0.9
 
         protected double[,] lastdeltaweights;           // веса предыдущей итерации обучения
         protected Neuron[] neurons;                     //массив нейронов текущего слоя
@@ -64,7 +63,7 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
                 Neurons[i] = new Neuron(tmp_weights, nt); //заполнение массива нейронами 
             }
         }
-
+        Random rand = new Random();
         // Метод работы с массивом синаптических весов слоя
         public double[,] WeightInitialize(MemoryMode mm, string path)
         {
@@ -106,7 +105,7 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
                     {
                         for (j = 0; j < numofprevneurons + 1; j++)
                         {
-                            tmpStr += weights[i, j] + "; ";
+                            tmpStr += weights[i, j] + ";";
                         }
                         tmpStrWeights[i] = tmpStr;
                         tmpStr = "";
@@ -115,15 +114,15 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
                     break;
 
                 case MemoryMode.INIT:
-                    Random rand = new Random();
+                    
                     for (i = 0; i < numofneurons; i++)
                     {
                         for (j = 0; j < numofprevneurons + 1; j++)
                         {
-                            weights[i, j] = NextNormalNum(rand);  
+                            weights[i, j] = NextNormalNum(rand);
                         }
                     }
-
+                    
                     tmpStrWeights = new string[numofneurons];
                     tmpStr = "";
                     for (i = 0; i < numofneurons; i++)
@@ -141,15 +140,17 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
             }
             return weights; 
         }
-        
+
         public double NextNormalNum(Random rand)
         {
             double u1 = 1.0 - rand.NextDouble();
             double u2 = 1.0 - rand.NextDouble();
 
-            return Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2) * 0.1;
+            double stddev = Math.Sqrt(2.0 / (numofprevneurons + numofneurons));
+            return Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2) * stddev;
+
+            //return Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2) * 0.1;
         }
-        
         abstract public void Recognize(Network net, Layer nextLayer); //прямой проход
 
         abstract public double[] BackwardPass(double[] stuff); //обратный проход

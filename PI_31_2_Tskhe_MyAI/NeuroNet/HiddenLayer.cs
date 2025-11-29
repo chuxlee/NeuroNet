@@ -30,7 +30,7 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
             {
                 double sum = 0;
                 for (int k = 0; k < numofneurons; k++)
-                    sum += neurons[k].Weights[j] * neurons[k].Derivative * gr_sums[k]; //через градиентные суммы и производную
+                    sum += neurons[k].Weights[j + 1] * neurons[k].Derivative * gr_sums[k]; //через градиентные суммы и производную
 
                 gr_sum[j] = sum;
             }

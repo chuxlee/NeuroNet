@@ -31,10 +31,11 @@
             net.output_layer.Recognize(net, null);
         }
 
+
         public void Train(Network net) //backpropagation method
         {
             net.input_layer = new InputLayer(NetworkMode.Train);
-            int epoches = 20; // кол-во эпох обучения
+            int epoches = 10; // кол-во эпох обучения
             double tmpSumError;     // временная переменная суммы ошибок
             double[] errors;        // вектор сигнала ошибки выходного слоя
             double[] temp_gsums1;   // вектор градиента 1-го скрытого слоя
@@ -79,6 +80,43 @@
             net.hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
             net.hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer2) + "_memory.csv");
             net.output_layer.WeightInitialize(MemoryMode.SET, nameof(output_layer) + "_memory.csv");
+        }
+        public void Test(Network net) 
+        {
+            net.input_layer = new InputLayer(NetworkMode.Test);
+            int epoches = 5; // кол-во эпох тестирования
+
+            double tmpSumError;     // временная переменная суммы ошибок
+            double[] errors;        // вектор сигнала ошибки выходного слоя
+            e_error_avr = new double[epoches];
+
+            for (int k = 0; k < epoches; k++) // перебор эпох тестирования
+            {
+                e_error_avr[k] = 0; // значение средней ошибки
+                net.input_layer.Shuffling_Array_Rows(net.input_layer.Testset);
+                for (int i = 0; i < net.input_layer.Testset.GetLength(0); i++)
+                {
+                    double[] tmpTest = new double[15];
+                    for (int j = 0; j < tmpTest.Length; j++)
+                        tmpTest[j] = net.input_layer.Testset[i, j + 1];
+
+                    ForwardPass(net, tmpTest); // прямой проход тестового образа
+
+                    tmpSumError = 0;
+                    errors = new double[net.fact.Length];
+                    for (int x = 0; x < errors.Length; x++)
+                    {
+                        if (x == net.input_layer.Testset[i, 0]) errors[x] = 1.0 - net.fact[x];
+                        else errors[x] = -net.fact[x]; // 0.0 - net.fact[x];
+
+                        tmpSumError += errors[x] * errors[x] / 2;
+                    }
+                    e_error_avr[k] += tmpSumError / errors.Length; // суммарное значение энергии ошибки
+
+                }
+            }
+
+            net.input_layer = null; //обнуление (уборка) входного слоя
         }
     }
 }

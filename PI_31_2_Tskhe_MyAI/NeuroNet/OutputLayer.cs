@@ -21,14 +21,14 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
 
         public override double[] BackwardPass(double[] errors)
         {
-            double[] gr_sum = new double[numofprevneurons + 1];
+            double[] gr_sum = new double[numofprevneurons];
             
             // вычисление градиентных сумм выходного слоя 
-            for (int j = 0; j < numofprevneurons + 1; j++)
+            for (int j = 0; j < numofprevneurons; j++)
             {
                 double sum = 0;
                 for (int k = 0; k < numofneurons; k++)
-                    sum += neurons[k].Weights[j] * errors[k];
+                    sum += neurons[k].Weights[j + 1] * errors[k];
                 gr_sum[j] = sum;
             }
 
