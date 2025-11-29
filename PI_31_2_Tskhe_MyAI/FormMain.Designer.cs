@@ -56,6 +56,7 @@ namespace PI_31_2_Tskhe_MyAI
             this.button_Training = new System.Windows.Forms.Button();
             this.chart_Eavr = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button_test = new System.Windows.Forms.Button();
+            this.button_dropout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NecessaryOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Eavr)).BeginInit();
             this.SuspendLayout();
@@ -275,7 +276,7 @@ namespace PI_31_2_Tskhe_MyAI
             this.buttonRecognize.Location = new System.Drawing.Point(238, 99);
             this.buttonRecognize.Margin = new System.Windows.Forms.Padding(6);
             this.buttonRecognize.Name = "buttonRecognize";
-            this.buttonRecognize.Size = new System.Drawing.Size(137, 82);
+            this.buttonRecognize.Size = new System.Drawing.Size(177, 82);
             this.buttonRecognize.TabIndex = 18;
             this.buttonRecognize.Text = "Распознать";
             this.buttonRecognize.UseVisualStyleBackColor = true;
@@ -304,7 +305,7 @@ namespace PI_31_2_Tskhe_MyAI
             this.button_Training.Location = new System.Drawing.Point(238, 193);
             this.button_Training.Margin = new System.Windows.Forms.Padding(6);
             this.button_Training.Name = "button_Training";
-            this.button_Training.Size = new System.Drawing.Size(137, 82);
+            this.button_Training.Size = new System.Drawing.Size(177, 82);
             this.button_Training.TabIndex = 21;
             this.button_Training.Text = "Обучить";
             this.button_Training.UseVisualStyleBackColor = true;
@@ -330,20 +331,32 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // button_test
             // 
-            this.button_test.Location = new System.Drawing.Point(238, 295);
+            this.button_test.Location = new System.Drawing.Point(238, 287);
             this.button_test.Margin = new System.Windows.Forms.Padding(6);
             this.button_test.Name = "button_test";
-            this.button_test.Size = new System.Drawing.Size(137, 82);
+            this.button_test.Size = new System.Drawing.Size(177, 82);
             this.button_test.TabIndex = 23;
             this.button_test.Text = "Тестирование";
             this.button_test.UseVisualStyleBackColor = true;
             this.button_test.Click += new System.EventHandler(this.button_test_Click);
+            // 
+            // button_dropout
+            // 
+            this.button_dropout.Location = new System.Drawing.Point(238, 381);
+            this.button_dropout.Margin = new System.Windows.Forms.Padding(6);
+            this.button_dropout.Name = "button_dropout";
+            this.button_dropout.Size = new System.Drawing.Size(177, 82);
+            this.button_dropout.TabIndex = 24;
+            this.button_dropout.Text = "Регуляризация";
+            this.button_dropout.UseVisualStyleBackColor = true;
+            this.button_dropout.Click += new System.EventHandler(this.button_dropout_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1662, 752);
+            this.Controls.Add(this.button_dropout);
             this.Controls.Add(this.button_test);
             this.Controls.Add(this.chart_Eavr);
             this.Controls.Add(this.button_Training);
@@ -406,6 +419,7 @@ namespace PI_31_2_Tskhe_MyAI
         private System.Windows.Forms.Button button_Training;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_Eavr;
         private System.Windows.Forms.Button button_test;
+        private System.Windows.Forms.Button button_dropout;
     }
 }
 

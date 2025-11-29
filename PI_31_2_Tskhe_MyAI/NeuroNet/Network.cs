@@ -1,4 +1,6 @@
-﻿namespace PI_31_2_Tskhe_MyAI.NeuroNet
+﻿using System;
+
+namespace PI_31_2_Tskhe_MyAI.NeuroNet
 {
     class Network
     {
@@ -117,6 +119,15 @@
             }
 
             net.input_layer = null; //обнуление (уборка) входного слоя
+        }
+
+        public void Dropout(Network net)
+        {
+            Random rand = new Random();
+
+            net.hidden_layer1.DropoutToLayer(rand);
+            net.hidden_layer2.DropoutToLayer(rand);
+            net.output_layer.DropoutToLayer(rand);
         }
     }
 }

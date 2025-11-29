@@ -23,10 +23,10 @@ D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\bin\Debug\PI_31_2_Tskhe_MyAI.exe.config
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\bin\Debug\PI_31_2_Tskhe_MyAI.exe
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\bin\Debug\PI_31_2_Tskhe_MyAI.pdb
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.csproj.AssemblyReference.cache
-D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.exe.config
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.FormMain.resources
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.Properties.Resources.resources
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.csproj.GenerateResource.cache
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.csproj.CoreCompileInputs.cache
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.exe
 D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.pdb
+D:\PI_31_2_Tskhe_MyAI\PI_31_2_Tskhe_MyAI\obj\Debug\PI_31_2_Tskhe_MyAI.exe.config

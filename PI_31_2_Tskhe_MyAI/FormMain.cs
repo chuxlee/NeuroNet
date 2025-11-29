@@ -96,5 +96,12 @@ namespace PI_31_2_Tskhe_MyAI
             MessageBox.Show("Тестирование завершено.", "Информация",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void button_dropout_Click(object sender, EventArgs e)
+        {
+            network.Dropout(network);
+            MessageBox.Show("Регуляризация завершена.", "Информация",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
