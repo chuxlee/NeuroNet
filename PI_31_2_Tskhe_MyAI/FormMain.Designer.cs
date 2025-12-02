@@ -29,8 +29,12 @@ namespace PI_31_2_Tskhe_MyAI
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -57,15 +61,17 @@ namespace PI_31_2_Tskhe_MyAI
             this.chart_Eavr = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button_test = new System.Windows.Forms.Button();
             this.button_dropout = new System.Windows.Forms.Button();
+            this.chart_Acc = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NecessaryOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Eavr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Acc)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(22, 99);
+            this.button1.Location = new System.Drawing.Point(20, 97);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(60, 58);
@@ -77,7 +83,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(94, 99);
+            this.button2.Location = new System.Drawing.Point(92, 97);
             this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 58);
@@ -89,7 +95,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.ForeColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(166, 99);
+            this.button3.Location = new System.Drawing.Point(164, 97);
             this.button3.Margin = new System.Windows.Forms.Padding(6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(60, 58);
@@ -101,7 +107,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.ForeColor = System.Drawing.Color.Transparent;
-            this.button4.Location = new System.Drawing.Point(22, 168);
+            this.button4.Location = new System.Drawing.Point(20, 166);
             this.button4.Margin = new System.Windows.Forms.Padding(6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(60, 58);
@@ -113,7 +119,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.ForeColor = System.Drawing.Color.Transparent;
-            this.button5.Location = new System.Drawing.Point(94, 168);
+            this.button5.Location = new System.Drawing.Point(92, 166);
             this.button5.Margin = new System.Windows.Forms.Padding(6);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(60, 58);
@@ -125,7 +131,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.ForeColor = System.Drawing.Color.Transparent;
-            this.button6.Location = new System.Drawing.Point(166, 168);
+            this.button6.Location = new System.Drawing.Point(164, 166);
             this.button6.Margin = new System.Windows.Forms.Padding(6);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(60, 58);
@@ -137,7 +143,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.ForeColor = System.Drawing.Color.Transparent;
-            this.button7.Location = new System.Drawing.Point(22, 237);
+            this.button7.Location = new System.Drawing.Point(20, 235);
             this.button7.Margin = new System.Windows.Forms.Padding(6);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(60, 58);
@@ -149,7 +155,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.ForeColor = System.Drawing.Color.Transparent;
-            this.button8.Location = new System.Drawing.Point(94, 237);
+            this.button8.Location = new System.Drawing.Point(92, 235);
             this.button8.Margin = new System.Windows.Forms.Padding(6);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(60, 58);
@@ -161,7 +167,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.ForeColor = System.Drawing.Color.Transparent;
-            this.button9.Location = new System.Drawing.Point(166, 237);
+            this.button9.Location = new System.Drawing.Point(164, 235);
             this.button9.Margin = new System.Windows.Forms.Padding(6);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(60, 58);
@@ -173,7 +179,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button10.BackColor = System.Drawing.Color.White;
             this.button10.ForeColor = System.Drawing.Color.Transparent;
-            this.button10.Location = new System.Drawing.Point(22, 307);
+            this.button10.Location = new System.Drawing.Point(20, 305);
             this.button10.Margin = new System.Windows.Forms.Padding(6);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(60, 58);
@@ -185,7 +191,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button11.BackColor = System.Drawing.Color.White;
             this.button11.ForeColor = System.Drawing.Color.Transparent;
-            this.button11.Location = new System.Drawing.Point(94, 307);
+            this.button11.Location = new System.Drawing.Point(92, 305);
             this.button11.Margin = new System.Windows.Forms.Padding(6);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(60, 58);
@@ -197,7 +203,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button12.BackColor = System.Drawing.Color.White;
             this.button12.ForeColor = System.Drawing.Color.Transparent;
-            this.button12.Location = new System.Drawing.Point(166, 307);
+            this.button12.Location = new System.Drawing.Point(164, 305);
             this.button12.Margin = new System.Windows.Forms.Padding(6);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(60, 58);
@@ -209,7 +215,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button13.BackColor = System.Drawing.Color.White;
             this.button13.ForeColor = System.Drawing.Color.Transparent;
-            this.button13.Location = new System.Drawing.Point(22, 376);
+            this.button13.Location = new System.Drawing.Point(20, 374);
             this.button13.Margin = new System.Windows.Forms.Padding(6);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(60, 58);
@@ -221,7 +227,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button14.BackColor = System.Drawing.Color.White;
             this.button14.ForeColor = System.Drawing.Color.Transparent;
-            this.button14.Location = new System.Drawing.Point(94, 376);
+            this.button14.Location = new System.Drawing.Point(92, 374);
             this.button14.Margin = new System.Windows.Forms.Padding(6);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(60, 58);
@@ -233,7 +239,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             this.button15.BackColor = System.Drawing.Color.White;
             this.button15.ForeColor = System.Drawing.Color.Transparent;
-            this.button15.Location = new System.Drawing.Point(166, 376);
+            this.button15.Location = new System.Drawing.Point(164, 374);
             this.button15.Margin = new System.Windows.Forms.Padding(6);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(60, 58);
@@ -243,7 +249,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // numericUpDown_NecessaryOutput
             // 
-            this.numericUpDown_NecessaryOutput.Location = new System.Drawing.Point(22, 458);
+            this.numericUpDown_NecessaryOutput.Location = new System.Drawing.Point(20, 458);
             this.numericUpDown_NecessaryOutput.Margin = new System.Windows.Forms.Padding(6);
             this.numericUpDown_NecessaryOutput.Name = "numericUpDown_NecessaryOutput";
             this.numericUpDown_NecessaryOutput.Size = new System.Drawing.Size(204, 31);
@@ -251,7 +257,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // SaveTrainSample
             // 
-            this.SaveTrainSample.Location = new System.Drawing.Point(22, 501);
+            this.SaveTrainSample.Location = new System.Drawing.Point(20, 501);
             this.SaveTrainSample.Margin = new System.Windows.Forms.Padding(6);
             this.SaveTrainSample.Name = "SaveTrainSample";
             this.SaveTrainSample.Size = new System.Drawing.Size(204, 103);
@@ -262,7 +268,7 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // SaveTestSample
             // 
-            this.SaveTestSample.Location = new System.Drawing.Point(22, 616);
+            this.SaveTestSample.Location = new System.Drawing.Point(20, 616);
             this.SaveTestSample.Margin = new System.Windows.Forms.Padding(6);
             this.SaveTestSample.Name = "SaveTestSample";
             this.SaveTestSample.Size = new System.Drawing.Size(204, 103);
@@ -273,19 +279,21 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // buttonRecognize
             // 
-            this.buttonRecognize.Location = new System.Drawing.Point(238, 99);
+            this.buttonRecognize.BackColor = System.Drawing.Color.Transparent;
+            this.buttonRecognize.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonRecognize.Location = new System.Drawing.Point(236, 97);
             this.buttonRecognize.Margin = new System.Windows.Forms.Padding(6);
             this.buttonRecognize.Name = "buttonRecognize";
-            this.buttonRecognize.Size = new System.Drawing.Size(177, 82);
+            this.buttonRecognize.Size = new System.Drawing.Size(204, 101);
             this.buttonRecognize.TabIndex = 18;
             this.buttonRecognize.Text = "Распознать";
-            this.buttonRecognize.UseVisualStyleBackColor = true;
+            this.buttonRecognize.UseVisualStyleBackColor = false;
             this.buttonRecognize.Click += new System.EventHandler(this.buttonRecognize_Click);
             // 
             // label_output
             // 
             this.label_output.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_output.Location = new System.Drawing.Point(-2, 28);
+            this.label_output.Location = new System.Drawing.Point(6, 22);
             this.label_output.Name = "label_output";
             this.label_output.Size = new System.Drawing.Size(130, 65);
             this.label_output.TabIndex = 19;
@@ -294,7 +302,7 @@ namespace PI_31_2_Tskhe_MyAI
             // label_Probability
             // 
             this.label_Probability.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Probability.Location = new System.Drawing.Point(107, 28);
+            this.label_Probability.Location = new System.Drawing.Point(118, 22);
             this.label_Probability.Name = "label_Probability";
             this.label_Probability.Size = new System.Drawing.Size(367, 65);
             this.label_Probability.TabIndex = 20;
@@ -302,10 +310,10 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // button_Training
             // 
-            this.button_Training.Location = new System.Drawing.Point(238, 193);
+            this.button_Training.Location = new System.Drawing.Point(236, 235);
             this.button_Training.Margin = new System.Windows.Forms.Padding(6);
             this.button_Training.Name = "button_Training";
-            this.button_Training.Size = new System.Drawing.Size(177, 82);
+            this.button_Training.Size = new System.Drawing.Size(204, 82);
             this.button_Training.TabIndex = 21;
             this.button_Training.Text = "Обучить";
             this.button_Training.UseVisualStyleBackColor = true;
@@ -313,28 +321,30 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // chart_Eavr
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart_Eavr.ChartAreas.Add(chartArea2);
-            this.chart_Eavr.Location = new System.Drawing.Point(462, 28);
+            chartArea1.Name = "ChartArea1";
+            this.chart_Eavr.ChartAreas.Add(chartArea1);
+            this.chart_Eavr.Location = new System.Drawing.Point(462, 41);
             this.chart_Eavr.Name = "chart_Eavr";
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "Series1";
-            this.chart_Eavr.Series.Add(series2);
-            this.chart_Eavr.Size = new System.Drawing.Size(1177, 691);
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Series1";
+            this.chart_Eavr.Series.Add(series1);
+            this.chart_Eavr.Size = new System.Drawing.Size(889, 563);
             this.chart_Eavr.TabIndex = 22;
             this.chart_Eavr.Text = "chart1";
-            title2.BorderWidth = 2;
-            title2.Name = "График средних энергий ошибок";
-            this.chart_Eavr.Titles.Add(title2);
+            title1.BorderWidth = 2;
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title1.Name = "График средних энергий ошибок";
+            title1.Text = "График средних энергий ошибок";
+            this.chart_Eavr.Titles.Add(title1);
             // 
             // button_test
             // 
-            this.button_test.Location = new System.Drawing.Point(238, 287);
+            this.button_test.Location = new System.Drawing.Point(236, 423);
             this.button_test.Margin = new System.Windows.Forms.Padding(6);
             this.button_test.Name = "button_test";
-            this.button_test.Size = new System.Drawing.Size(177, 82);
+            this.button_test.Size = new System.Drawing.Size(204, 82);
             this.button_test.TabIndex = 23;
             this.button_test.Text = "Тестирование";
             this.button_test.UseVisualStyleBackColor = true;
@@ -342,20 +352,49 @@ namespace PI_31_2_Tskhe_MyAI
             // 
             // button_dropout
             // 
-            this.button_dropout.Location = new System.Drawing.Point(238, 381);
+            this.button_dropout.Location = new System.Drawing.Point(236, 329);
             this.button_dropout.Margin = new System.Windows.Forms.Padding(6);
             this.button_dropout.Name = "button_dropout";
-            this.button_dropout.Size = new System.Drawing.Size(177, 82);
+            this.button_dropout.Size = new System.Drawing.Size(204, 82);
             this.button_dropout.TabIndex = 24;
             this.button_dropout.Text = "Регуляризация";
             this.button_dropout.UseVisualStyleBackColor = true;
             this.button_dropout.Click += new System.EventHandler(this.button_dropout_Click);
             // 
+            // chart_Acc
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart_Acc.ChartAreas.Add(chartArea2);
+            this.chart_Acc.Location = new System.Drawing.Point(462, 628);
+            this.chart_Acc.Name = "chart_Acc";
+            this.chart_Acc.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Green;
+            series2.Name = "Series1";
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Blue;
+            series3.Name = "Series2";
+            this.chart_Acc.Series.Add(series2);
+            this.chart_Acc.Series.Add(series3);
+            this.chart_Acc.Size = new System.Drawing.Size(889, 563);
+            this.chart_Acc.TabIndex = 25;
+            this.chart_Acc.Text = "chart1";
+            title2.BorderWidth = 2;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title2.Name = "График средних энергий ошибок";
+            title2.Text = "График точности";
+            this.chart_Acc.Titles.Add(title2);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1662, 752);
+            this.ClientSize = new System.Drawing.Size(1861, 1324);
+            this.Controls.Add(this.chart_Acc);
             this.Controls.Add(this.button_dropout);
             this.Controls.Add(this.button_test);
             this.Controls.Add(this.chart_Eavr);
@@ -382,13 +421,11 @@ namespace PI_31_2_Tskhe_MyAI
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.MaximumSize = new System.Drawing.Size(1688, 823);
-            this.MinimizeBox = false;
             this.Name = "FormMain";
             this.Text = "FormMain";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_NecessaryOutput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_Eavr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_Acc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -420,6 +457,7 @@ namespace PI_31_2_Tskhe_MyAI
         private System.Windows.Forms.DataVisualization.Charting.Chart chart_Eavr;
         private System.Windows.Forms.Button button_test;
         private System.Windows.Forms.Button button_dropout;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_Acc;
     }
 }
 

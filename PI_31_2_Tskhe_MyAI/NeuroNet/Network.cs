@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace PI_31_2_Tskhe_MyAI.NeuroNet
 {
@@ -12,12 +13,17 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
 
         private double[] fact = new double[10]; // массив фактического выхода сети
         private double[] e_error_avr; // среднее значение энергии ошибки эпохи обучения
+        private double[] train_accuracy;
+        private double[] test_accuracy;
 
         // свойства
         public double[] Fact { get => fact; } // массив фактического выхода сети
 
         // среднее значение энергии ошибки эпохи обучения
         public double[] E_error_avr { get => e_error_avr; set => e_error_avr = value; }
+        public double[] Train_accuracy { get => train_accuracy; set => train_accuracy = value; }
+        public double[] Test_accuracy { get => test_accuracy; set => test_accuracy = value; }
+
 
         // конструктор
         public Network() { }
@@ -43,10 +49,17 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
             double[] temp_gsums1;   // вектор градиента 1-го скрытого слоя
             double[] temp_gsums2;   // вектор градиента 2-го скрытого слоя
 
+
             e_error_avr = new double[epoches];
+            train_accuracy = new double[epoches];
+
+
             for (int k = 0; k < epoches; k++) // перебор эпох обучения
             {
                 e_error_avr[k] = 0; // значение средней ошибки
+
+                int correct_predictions = 0;
+
                 net.input_layer.Shuffling_Array_Rows(net.input_layer.Trainset);
                 for (int i = 0; i < net.input_layer.Trainset.GetLength(0); i++)
                 {
@@ -68,12 +81,17 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
                     }
                     e_error_avr[k] += tmpSumError / errors.Length; // суммарное значение энергии ошибки
 
+                    int predicted = net.fact.ToList().IndexOf(net.fact.Max());
+                    int actual = (int)net.input_layer.Trainset[i, 0];
+                    if (predicted == actual) correct_predictions++;
+
                     // обратный проход и коррекция весов 
                     temp_gsums2 = net.output_layer.BackwardPass(errors);
                     temp_gsums1 = net.hidden_layer2.BackwardPass(temp_gsums2);
                     net.hidden_layer1.BackwardPass(temp_gsums1);
                 }
                 e_error_avr[k] /= net.input_layer.Trainset.GetLength(0); // среднее значение энергии ошибки
+                train_accuracy[k] = correct_predictions / net.input_layer.Trainset.GetLength(0);
             }
 
             net.input_layer = null; //обнуление (уборка) входного слоя
@@ -92,12 +110,16 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
             double[] errors;        // вектор сигнала ошибки выходного слоя
             e_error_avr = new double[epoches];
 
+            test_accuracy = new double[epoches];
+
             for (int k = 0; k < epoches; k++) // перебор эпох тестирования
             {
                 e_error_avr[k] = 0; // значение средней ошибки
+                int correct_predictions = 0;
+
                 net.input_layer.Shuffling_Array_Rows(net.input_layer.Testset);
                 for (int i = 0; i < net.input_layer.Testset.GetLength(0); i++)
-                {
+                { 
                     double[] tmpTest = new double[15];
                     for (int j = 0; j < tmpTest.Length; j++)
                         tmpTest[j] = net.input_layer.Testset[i, j + 1];
@@ -113,9 +135,13 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
 
                         tmpSumError += errors[x] * errors[x] / 2;
                     }
+                    int predicted = net.fact.ToList().IndexOf(net.fact.Max());
+                    int actual = (int)net.input_layer.Testset[i, 0];
+                    if (predicted == actual) correct_predictions++;
+                    
                     e_error_avr[k] += tmpSumError / errors.Length; // суммарное значение энергии ошибки
-
                 }
+                test_accuracy[k] = correct_predictions / net.input_layer.Testset.GetLength(0);
             }
 
             net.input_layer = null; //обнуление (уборка) входного слоя

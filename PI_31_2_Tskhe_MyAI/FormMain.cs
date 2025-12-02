@@ -14,7 +14,6 @@ namespace PI_31_2_Tskhe_MyAI
 {
     public partial class FormMain : Form
     {
-        // HiddenLayer hiddenLayer; //DELETE IT LATER
         private double[] inputPixels; // массив входных данных 
         private Network network; // объявление нейросети
         public FormMain()
@@ -67,6 +66,7 @@ namespace PI_31_2_Tskhe_MyAI
             for (int i = 0; i < network.E_error_avr.Length; i++)
             {
                 chart_Eavr.Series[0].Points.AddY(network.E_error_avr[i]);
+                chart_Acc.Series[1].Points.AddY(network.Train_accuracy[i]);
             }
             MessageBox.Show("Обучение успешно завершено.", "Информация",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -92,6 +92,7 @@ namespace PI_31_2_Tskhe_MyAI
             for (int i = 0; i < network.E_error_avr.Length; i++)
             {
                 chart_Eavr.Series[0].Points.AddY(network.E_error_avr[i]);
+                chart_Acc.Series[1].Points.AddY(network.Test_accuracy[i]);
             }
             MessageBox.Show("Тестирование завершено.", "Информация",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);

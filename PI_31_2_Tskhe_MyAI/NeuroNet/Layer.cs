@@ -15,8 +15,8 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
         string pathFileWeights;             // пусть к файлу синаптических весов для нейросети
         protected int numofneurons;         //число нейронов текущего слоя
         protected int numofprevneurons;     //число нейронов предыдущего слоя
-        protected const double learningrate = 0.065;    //скорость обучения (будем менять) 0.085 0.0055 0.065
-        protected const double momentum = 0.05d;       //момент инерции 0.095 0.0000 0.9 0.05
+        protected const double learningrate = 0.066;    //скорость обучения (будем менять) 0.085 0.0055 0.065
+        protected const double momentum = 0.07d;       //момент инерции 0.095 0.0000 0.9 0.05
 
         protected double[,] lastdeltaweights;           // веса предыдущей итерации обучения
         protected Neuron[] neurons;                     //массив нейронов текущего слоя
@@ -148,8 +148,6 @@ namespace PI_31_2_Tskhe_MyAI.NeuroNet
 
             double stddev = Math.Sqrt(2.0 / (numofprevneurons + numofneurons));
             return Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2) * stddev;
-
-            //return Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2) * 0.1;
         }
         abstract public void Recognize(Network net, Layer nextLayer); //прямой проход
 
